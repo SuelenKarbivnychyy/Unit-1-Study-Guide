@@ -105,199 +105,348 @@ def smallest_int(numbers):
         True
     """
 
-    smallest_num = numbers[0]
+    smallest_num = numbers[0] #seting the variable to be the fisrt index number of the list "in case the list just take one number" 
     for number in numbers:
 
         if number < smallest_num:
-            smallest_num = number          
+            smallest_num = number  
+
     return smallest_num
 
 smallest_number = smallest_int([3, 7, 2, -8, 4])  
-print(smallest_number)          
+# print(smallest_number)          
 
 
-# def largest_int(numbers):
-#     """Find the largest integer in a list of integers and return it.
-#     **DO NOT USE** the built-in function `max()`!
+def largest_int(numbers):
+    """Find the largest integer in a list of integers and return it.
+    **DO NOT USE** the built-in function `max()`!
     
-#     For example::
+    For example::
     
-#         >>> largest_int([-5, 2, -5, 7])
-#         7
-#         >>> largest_int([3, 7, 2, 8, 4])
-#         8
+        >>> largest_int([-5, 2, -5, 7])
+        7
+        >>> largest_int([3, 7, 2, 8, 4])
+        8
     
-#     If the input list is empty, return None::
+    If the input list is empty, return None::
     
-#         >>> largest_int([]) is None
-#         True
-#     """
-#     largest_num = int()
-#     for num in numbers:
-#         if num > largest_num:
-#             largest_num = num
-#             return largest_num
-#         else:
-#             return None
-# greatest = largest_int([3, 7, 2, 8, 4]) 
+        >>> largest_int([]) is None
+        True
+    """
+    largest_num = numbers[0]
+
+    for num in numbers:
+
+        if num > largest_num:
+            largest_num = num
+
+    return largest_num
+  
+greatest = largest_int([3, 7, 2, 8, 4]) 
 # print(greatest)           
 
 
-# def halvesies(numbers):
-#     """Return list of numbers from input list, each divided by two.
+def halvesies(numbers):
+    """Return list of numbers from input list, each divided by two.
     
-#     For example::
+    For example::
     
-#         >>> halvesies([2, 6, -2])
-#         [1.0, 3.0, -1.0]
+        >>> halvesies([2, 6, -2])
+        [1.0, 3.0, -1.0]
    
-#     If any of the numbers are odd, make sure you don't round off
-#     the half::
+    If any of the numbers are odd, make sure you don't round off
+    the half::
    
-#         >>> halvesies([1, 5])
-#         [0.5, 2.5]
-#     """
+        >>> halvesies([1, 5])
+        [0.5, 2.5]
+    """
 
-#     return []
+    #pseudocode:
+    #define an empty list
+    #iterate through the list
+    #devide each number by two
+    #append the result to the empty list
+    #return the list full of results
+    #call the function
 
+    divided_by_two = []
 
-# def word_lengths(words):
-#     """Return the length of words in the input list.
-    
-#     For example::
-    
-#         >>> word_lengths(["hello", "hey", "hello", "spam"])
-#         [5, 3, 5, 4]
-#     """
+    for num in numbers:
+        divided_by_two.append(num / 2)
 
-#     return []
+    return divided_by_two
 
-
-# def sum_numbers(numbers):
-#     """Return the sum of all of the numbers in the list.
-#     Python has a built-in function, `sum()`, which already does
-#     this --- but for this exercise, you should not use it.
-    
-#     For example::
-    
-#         >>> sum_numbers([1, 2, 3, 10])
-#         16
-    
-#     Any empty list should return the sum of zero::
-    
-#         >>> sum_numbers([])
-#         0
-#     """
-
-#     return None
+divided_by_two_list = halvesies([2, 6, -2, 1])    
+# print(divided_by_two_list)
 
 
-# def mult_numbers(numbers):
-#     """Return product (result of multiplication) of numbers in list.
-    
-#     For example::
-    
-#         >>> mult_numbers([1, 2, 3])
-#         6
-    
-#     Obviously, if there is a zero in input, the product is zero::
-    
-#         >>> mult_numbers([10, 20, 0, 50])
-#         0
-    
-#     As explained at http://en.wikipedia.org/wiki/Empty_product,
-#     if the list is empty, the product should be 1::
-    
-#         >>> mult_numbers([])
-#         1
-#     """
 
-#     return None
+def word_lengths(words):
+    """Return the length of words in the input list.
+    
+    For example::
+    
+        >>> word_lengths(["hello", "hey", "hello", "spam"])
+        [5, 3, 5, 4]
+    """
 
+    #pseudocode
+    #create an empty list
+    #iterate through each element 
+    #get length of each words
+    #append each lenght to empty list
+    #return the list with results
+    #call the function
 
-# def join_strings(words):
-#     """Return a string of all input strings joined together.
-#     Python has a built-in method, `list.join()` --- but for
-#     this exercise, **you should not use it**.
-    
-#     For example::
-    
-#         >>> join_strings(["spam", "spam", "muffin", "balloonicorn"])
-#         'spamspammuffinballoonicorn'
-    
-#     For an empty list, you should return an empty string::
-    
-#         >>> join_strings([])
-#         ''
-#     """
+    length_words = []
 
-#     return "Not the right thing"
+    for word in words:
+        length_words.append(len(word))
+
+    return [length_words]
+
+lenght_each_word = word_lengths(["hello", "hey", "hello", "spam"]) 
+# print(lenght_each_word)  
 
 
-# def average(numbers):
-#     """Return the average (mean) of the list of numbers given.
+def sum_numbers(numbers):
+    """Return the sum of all of the numbers in the list.
+    Python has a built-in function, `sum()`, which already does
+    this --- but for this exercise, you should not use it.
     
-#     For example::
+    For example::
     
-#         >>> average([2, 4])
-#         3.0
+        >>> sum_numbers([1, 2, 3, 10])
+        16
     
-#     This should handle cases where the result isn't an integer::
+    Any empty list should return the sum of zero::
     
-#         >>> average([2, 12, 3])
-#         5.666666666666667
-    
-#     There is no defined answer if the list given is empty;
-#     it's fine if this raises an error when given an empty list.
-#     (Think of the best way to handle an empty input list, though,
-#     a feel free to provide a good solution here.)
-#     """
+        >>> sum_numbers([])
+        0
+    """
+    #pseudocode:
+    #set a variable equals to zero
+    #iterate through the list
+    #equals the variable to the sum of each element from the list   
+    #return the lvariable
+    #call the function
 
-#     return 0
+    sum_of_all_numbers = 0
+
+    for num in numbers:
+
+        if num in numbers:
+            sum_of_all_numbers += num
+        else:
+            return 0    
+
+    return sum_of_all_numbers
+
+sum_all = sum_numbers([1, 2, 3, 10]) 
+# print(sum_all)   
 
 
-# def join_strings_with_comma(words):
-#     """Return ['list', 'of', 'words'] like "list, of, words".
+def mult_numbers(numbers):
+    """Return product (result of multiplication) of numbers in list.
     
-#     For example::
+    For example::
+    
+        >>> mult_numbers([1, 2, 3])
+        6
+    
+    Obviously, if there is a zero in input, the product is zero::
+    
+        >>> mult_numbers([10, 20, 0, 50])
+        0
+    
+    As explained at http://en.wikipedia.org/wiki/Empty_product,
+    if the list is empty, the product should be 1::
+    
+        >>> mult_numbers([])
+        1
+    """
+
+    #creat a variable equals to one
+    #iterate throug the list
+    #equals the variable to be the result of multiplication
+    #return the variable
+    #call the function
+
+    multiplication = 1 #setting iguals to one because any number multiplied by one is the number it self
+
+    for num in numbers:
+        multiplication *= num
+
+    return multiplication
+
+multiplicating_numbers = mult_numbers([1, 2, 3])   
+# print(multiplicating_numbers) 
+
+
+def join_strings(words):
+    """Return a string of all input strings joined together.
+    Python has a built-in method, `list.join()` --- but for
+    this exercise, **you should not use it**.
+    
+    For example::
+    
+        >>> join_strings(["spam", "spam", "muffin", "balloonicorn"])
+        'spamspammuffinballoonicorn'
+    
+    For an empty list, you should return an empty string::
+    
+        >>> join_strings([])
+        ''
+    """
+    #pseudocode:
+    #create an empty string
+    #iterate through each element from the list
+    #set the empty string equals to the elemnt of iteration + itself
+    #return the string
+    #call tge function
+
+    long_string = ("")
+
+    for word in words:
+        
+        long_string += word
+    return long_string
+
+strings_to_join = join_strings(["spam", "spam", "muffin", "balloonicorn"])
+# print(strings_to_join)
+
+
+
+
+def average(numbers):
+    """Return the average (mean) of the list of numbers given.
+    
+    For example::
+    
+        >>> average([2, 4])
+        3.0
+    
+    This should handle cases where the result isn't an integer::
+    
+        >>> average([2, 12, 3])
+        5.666666666666667
+    
+    There is no defined answer if the list given is empty;
+    it's fine if this raises an error when given an empty list.
+    (Think of the best way to handle an empty input list, though,
+    a feel free to provide a good solution here.)
+    """
+
+    #pseudocode:
+    #"to get the avarage we have to soma all numbers and devide by the lenght of numbers list"
+    #create an variable and set it to zero
+    #iterate through the list
+    #sum all the numbers from the list
+    #devide the total by the lenght of the list
+    #return the variable with the sum
+    #call the function
+
+    average_numbers = 0
+
+    for num in numbers:
+
+        average_numbers += num
+    average_numbers = average_numbers / len(numbers)
+
+    return average_numbers
+
+mean = average([2, 12, 3])
+# print(mean)
+
+
+def join_strings_with_comma(words):
+    """Return ['list', 'of', 'words'] like "list, of, words".
+    
+    For example::
      
-#         >>> join_strings_with_comma(
-#         ...     ["Labrador", "Poodle", "French Bulldog"]
-#         ...     )
-#         'Labrador, Poodle, French Bulldog'
+        >>> join_strings_with_comma(
+        ...     ["Labrador", "Poodle", "French Bulldog"]
+        ...     )
+        'Labrador, Poodle, French Bulldog'
     
-#     If there's only one thing in the list, it should return just that
-#     thing, of course::
+    If there's only one thing in the list, it should return just that
+    thing, of course::
    
-#         >>> join_strings_with_comma(["Pretzel"])
-#         'Pretzel'
-#     """
+        >>> join_strings_with_comma(["Pretzel"])
+        'Pretzel'
+    """
 
-#     return ""
+    #pseudocode:
+    #create a empty list
+    #iterate through the list
+    #save it element to new list
+    # split it with coma
+    # return new list
+    # call the function
+
+    string_separeted_by_comma = []
+
+    for word in words:
+        string_separeted_by_comma = ",".join(words)       
+
+    return  string_separeted_by_comma
+
+join_words = join_strings_with_comma(["Labrador", "Poodle", "French Bulldog"])
+# print(join_words)
 
 
-# def reverse_list(items):
-#     """Return the input list, reversed.
-#     **Do not use** the python function `reversed()` or the method
-#     `list.reverse()`.
-    
-#     For example::
-    
-#         >>> reverse_list([1, 2, 3])
-#         [3, 2, 1]
-#         >>> reverse_list(["cookies", "love", "I"])
-#         ['I', 'love', 'cookies']
-    
-#     You should do this without changing the original list::
-    
-#         >>> orig = ["apple", "berry", "cherry"]
-#         >>> reverse_list(orig)
-#         ['cherry', 'berry', 'apple']
-#         >>> orig
-#         ['apple', 'berry', 'cherry']
-#     """
 
-#     return []
+def reverse_list(items):
+    """Return the input list, reversed.
+    **Do not use** the python function `reversed()` or the method
+    `list.reverse()`.
+    
+    For example::
+    
+        >>> reverse_list([1, 2, 3])
+        [3, 2, 1]
+        >>> reverse_list(["cookies", "love", "I"])
+        ['I', 'love', 'cookies']
+    
+    You should do this without changing the original list::
+    
+        >>> orig = ["apple", "berry", "cherry"]
+        >>> reverse_list(orig)
+        ['cherry', 'berry', 'apple']
+        >>> orig
+        ['apple', 'berry', 'cherry']
+    """
+
+    #pseudocode:
+    #create an empty list
+    #iterate throug the list
+    #append the elements of the list to the new list
+    #return the new list
+    #call the function
+
+    list_in_reverse = []
+
+    for element in items:
+        list_in_reverse.insert(0, element) #takes the element from each iterate and append it to the front of the list
+       
+    return list_in_reverse
+
+    # lenght_list = len(items) - 1 
+
+    #method #1
+    # for i in range(len(items)):
+
+    #     list_in_reverse.append(items[lenght_list - i])  
+    # element_index = len(items) - 1
+
+    #method #2
+    # while element_index >=0:
+    #     list_in_reverse.append(items[element_index])
+    #     element_index = element_index - 1
+
+reversed_list = reverse_list(["cookies", "love", "I"])
+print(reversed_list)    
+
 
 
 # def reverse_list_in_place(items):
