@@ -445,86 +445,136 @@ def reverse_list(items):
     #     element_index = element_index - 1
 
 reversed_list = reverse_list(["cookies", "love", "I"])
-print(reversed_list)    
+# print(reversed_list)    
 
 
 
-# def reverse_list_in_place(items):
-#     """Reverse the input list `in place`.
-#     Reverse the input list given, but do it "in place" --- that is,
-#     do not create a new list and return it, but modify the original
-#     list.
-#     **Do not use** the python function `reversed()` or the method
-#     `list.reverse()`.
+def reverse_list_in_place(items):
+    """Reverse the input list `in place`.
+    Reverse the input list given, but do it "in place" --- that is,
+    do not create a new list and return it, but modify the original
+    list.
+    **Do not use** the python function `reversed()` or the method
+    `list.reverse()`.
     
-#     For example::
+    For example::
     
-#         >>> orig = [1, 2, 3]
-#         >>> reverse_list_in_place(orig)
-#         >>> orig
-#         [3, 2, 1]
-#         >>> orig = ["cookies", "love", "I"]
-#         >>> reverse_list_in_place(orig)
-#         >>> orig
-#         ['I', 'love', 'cookies']
-#     """
+        >>> orig = [1, 2, 3]
+        >>> reverse_list_in_place(orig)
+        >>> orig
+        [3, 2, 1]
+        >>> orig = ["cookies", "love", "I"]
+        >>> reverse_list_in_place(orig)
+        >>> orig
+        ['I', 'love', 'cookies']
+    """
 
-#     return []
+    return []
 
 
-# def duplicates(items):
-#     """Return list of words from input list which were duplicates.
-#     Return a list of words which are duplicated in the input list.
-#     The returned list should be in ascending order.
+def duplicates(items):
+    """Return list of words from input list which were duplicates.
+    Return a list of words which are duplicated in the input list.
+    The returned list should be in ascending order.
    
-#     For example::
+    For example::
    
-#         >>> duplicates(
-#         ...     ["apple", "banana", "banana", "cherry", "apple"]
-#         ... )
-#         ['apple', 'banana']
-#         >>> duplicates([1, 2, 2, 4, 4, 4, 7])
-#         [2, 4]
+        >>> duplicates(
+        ...     ["apple", "banana", "banana", "cherry", "apple"]
+        ... )
+        ['apple', 'banana']
+        >>> duplicates([1, 2, 2, 4, 4, 4, 7])
+        [2, 4]
    
-#     You should do this without changing the original list::
+    You should do this without changing the original list::
    
-#         >>> orig = ["apple", "apple", "berry"]
-#         >>> duplicates(orig)
-#         ['apple']
-#         >>> orig
-#         ['apple', 'apple', 'berry']
-#     """
+        >>> orig = ["apple", "apple", "berry"]
+        >>> duplicates(orig)
+        ['apple']
+        >>> orig
+        ['apple', 'apple', 'berry']
+    """
 
-#     return []
+    #pseudocode:
+    #create an empty list to append duplicates
+    #creat an empty list to append unique item
+    #iterate through the given list
+    #check if item is not in unique_items_list
+    #if not, append to it 
+    #check if item is not already in duplicate items list
+    #if true, append to it 
+    #sort duplicate list outside of loop
+    #return list with duplicate words
+    #call the function
+
+    unique_items = []
+    items_with_duplicates = []
+
+    for item in items:
+        if not item in unique_items:
+            unique_items.append(item)
+        elif not item in items_with_duplicates:
+            items_with_duplicates.append(item)
+    items_with_duplicates.sort() #is better to define sort out of the loop because it is a heavy operator.
+
+    return items_with_duplicates
+
+duplicate_items = duplicates(["apple", "banana", "banana", "banana", "cherry", "apple"])
+# print(duplicate_items)
 
 
-# def find_letter_indices(words, letter):
-#     """Return list of indices where letter appears in each word.
-#     Given a list of words and a letter, return a list of integers
-#     that correspond to the index of the first occurrence of the letter
-#     in that word.
-#     **DO NOT** use the `list.index()` method.
-    
-#     For example::
-    
-#         >>> find_letter_indices(['odd', 'dog', 'who'], 'o')
-#         [0, 1, 2]
-    
-#     ("o" is at index 0 in "odd", is at index 1 in "dog", and at
-#     index 2 in "who")
-    
-#     If the letter doesn't occur in one of the words, use `None` for
-#     that word in the output list. For example::
-    
-#         >>> find_letter_indices(['odd', 'dog', 'who', 'jumps'], 'o')
-#         [0, 1, 2, None]
-    
-#     ("o" does not appear in "jumps", so the result for that input is
-#     `None`.)
-#     """
 
-#     return []
+def find_letter_indices(words, letter):
+    """Return list of indices where letter appears in each word.
+    Given a list of words and a letter, return a list of integers
+    that correspond to the index of the first occurrence of the letter
+    in that word.
+    **DO NOT** use the `list.index()` method.
+    
+    For example::
+    
+        >>> find_letter_indices(['odd', 'dog', 'who'], 'o')
+        [0, 1, 2]
+    
+    ("o" is at index 0 in "odd", is at index 1 in "dog", and at
+    index 2 in "who")
+    
+    If the letter doesn't occur in one of the words, use `None` for
+    that word in the output list. For example::
+    
+        >>> find_letter_indices(['odd', 'dog', 'who', 'jumps'], 'o')
+        [0, 1, 2, None]
+    
+    ("o" does not appear in "jumps", so the result for that input is
+    `None`.)
+    """
 
+    #pseudocode:
+    #create an empty list that will take the indexes as integers
+    #iterate through the given list
+    #check if words in the given list has the given letter
+    #if word has the given letter
+    #check which is the index of first ocurrence of the given letter
+    #append the first ocurrence index to the empty list
+    #if word does not have the given letter
+    #append the word None to empty list.
+    #returm list with indexes
+    #call the function
+
+    letter_indices = []
+
+
+    for word in words:
+
+        if word.find(letter) == -1:
+            letter_indices.append(None)
+        else:
+            letter_indices.append(word.find(letter))    
+        
+    return letter_indices
+    
+letter_indice_list = find_letter_indices(['odd', 'dog', 'who', 'jumps'], 'o')   
+print(letter_indice_list) 
 
 # #####################################################################
 # # END OF PRACTICE: You can ignore everything below.
