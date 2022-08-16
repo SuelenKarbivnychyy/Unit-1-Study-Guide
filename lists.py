@@ -27,7 +27,7 @@ def long_words(words):
     
     For example::
     
-        >>> long_words(["hello", "a", "b", "hi", "muffin", "muffin"])clear
+        >>> long_words(["hello", "a", "b", "hi", "muffin", "muffin"])
         ['hello', 'muffin', 'muffin']
     
     (If there are duplicates, show both --- notice "muffin" appears
@@ -40,7 +40,7 @@ def long_words(words):
     """
 
     #pseudocode:
-    #createan empty list
+    #create an empty list
     #iterate through the given list
     #check if each word is longer than 4 char
     #if true, append that word to the new empty list
@@ -55,8 +55,8 @@ def long_words(words):
 
     return long_words_list  
  
-longest_word = long_words(["all", "are", "tiny"])    
-# print(longest_word)    
+longest_word = long_words(["hello", "a", "b", "hi", "muffin", "muffin"])    
+print(longest_word)    
 
 
 
@@ -104,8 +104,11 @@ def smallest_int(numbers):
         >>> smallest_int([]) is None
         True
     """
+    if len(numbers) == 0:
+        return None
 
     smallest_num = numbers[0] #seting the variable to be the fisrt index number of the list "in case the list just take one number" 
+
     for number in numbers:
 
         if number < smallest_num:
@@ -133,6 +136,10 @@ def largest_int(numbers):
         >>> largest_int([]) is None
         True
     """
+
+    if len(numbers) == 0:
+        return None
+
     largest_num = numbers[0]
 
     for num in numbers:
@@ -143,7 +150,9 @@ def largest_int(numbers):
     return largest_num
   
 greatest = largest_int([3, 7, 2, 8, 4]) 
-# print(greatest)           
+# print(greatest)   
+
+
 
 
 def halvesies(numbers):
@@ -203,7 +212,7 @@ def word_lengths(words):
     for word in words:
         length_words.append(len(word))
 
-    return [length_words]
+    return length_words
 
 lenght_each_word = word_lengths(["hello", "hey", "hello", "spam"]) 
 # print(lenght_each_word)  
@@ -387,7 +396,7 @@ def join_strings_with_comma(words):
     string_separeted_by_comma = []
 
     for word in words:
-        string_separeted_by_comma = ",".join(words)       
+        string_separeted_by_comma = ", ".join(words)       
 
     return  string_separeted_by_comma
 
@@ -469,7 +478,24 @@ def reverse_list_in_place(items):
         ['I', 'love', 'cookies']
     """
 
-    return []
+
+    #pseudocode:
+    #reverse the list in place
+    #return the list
+    #call the function
+
+    
+    # items = items[::-1]
+    reverse_list = []
+    for item in items:
+        reverse_list.insert(0, item)
+    for i in range(len(items)):
+        items[i] = reverse_list[i]    
+    
+    # return items
+test_data = ["cookies", "love", "I"]
+reverse_list_in_place(test_data)
+print(test_data)
 
 
 def duplicates(items):
@@ -574,14 +600,14 @@ def find_letter_indices(words, letter):
     return letter_indices
     
 letter_indice_list = find_letter_indices(['odd', 'dog', 'who', 'jumps'], 'o')   
-print(letter_indice_list) 
+# print(letter_indice_list) 
 
-# #####################################################################
-# # END OF PRACTICE: You can ignore everything below.
+#####################################################################
+# END OF PRACTICE: You can ignore everything below.
 
-# if __name__ == "__main__":
-#     import doctest
+if __name__ == "__main__":
+    import doctest
 
-#     result = doctest.testmod()
-#     if not result.failed:
-#         print("\nALL TESTS PASSED. GOOD WORK!\n")
+    result = doctest.testmod()
+    if not result.failed:
+        print("\nALL TESTS PASSED. GOOD WORK!\n")
