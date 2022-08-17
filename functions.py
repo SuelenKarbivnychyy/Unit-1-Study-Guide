@@ -9,6 +9,8 @@ PART ONE:
     >>> hello_world()
     Hello World
 
+    
+
     >>> say_hi("Balloonicorn")
     Hi Balloonicorn
 
@@ -64,6 +66,7 @@ PART TWO:
 
 """
 
+
 ###############################################################################
 
 # PART ONE
@@ -71,37 +74,99 @@ PART TWO:
 # 1. Write a function called 'hello_world' that does not take any arguments and
 #    prints "Hello World".
 
+def hello_world():
+    
+    print("Hello World")   
+
+hello_world()
+
 
 # 2. Write a function called 'say_hi' that takes a name as a string and
 #    prints "Hi" followed by the name.
+
+def say_hi(name):
+
+    print(f"Hi {name}")
+
+say_hi("Suelen")    
 
 
 # 3. Write a function called 'print_product' that takes two integers and
 #    multiplies them together. Print the result.
 
+def print_product(number1, number2):
+
+    print(number1 * number2)
+
+print_product(10, 2)    
+
 
 # 4. Write a function called 'repeat_string' that takes a string and an integer
 #    and prints the string that many times
 
+def repeat_string(string, integer):
+
+    print(string * integer)
+
+repeat_string("House", 5)    
 
 # 5. Write a function called 'print_sign' that takes an integer and prints
 #    "Higher than 0" if higher than zero and "Lower than 0" if lower than zero.
 #    If the integer is zero, print "Zero".
+
+def print_sign(number):
+
+    if number > 0 :
+        print("Higher than 0")
+    elif number < 0:
+        print("Lower than 0")   
+    else:
+        print("Zero")   
+
+print_sign(10)         
 
 
 # 6. Write a function called 'is_divisible_by_three' that takes an integer and
 #    returns a boolean (True or False), depending on whether the number is
 #    evenly divisible by 3.
 
+def is_divisible_by_three(number):
+
+    if number %3 == 0:
+        return True
+    else: 
+        return False    
+
+is_divisible = is_divisible_by_three(10)      
+print(is_divisible)  
+
 
 # 7. Write a function called 'num_spaces' that takes a sentence as one string
 #    and returns the number of spaces.
 
+def num_spaces(sentence):
+
+    spaces = 0
+    for item in sentence:
+        if item == (" "):
+            spaces += 1
+    return spaces
+
+spaces_counter = num_spaces("A galinha da visinha bota ovo amarelinho, bota um, bota dois, bota tres, bota quatro, bota mil.")
+print(spaces_counter)            
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price
 #    and a tip percentage. It should return the total amount paid
 #    (price + price * tip). **However:** passing in the tip percentage should
 #    be optional; if not given, it should default to 15%.
+
+def total_meal_price(meal_price, tip_porcentage = .15):
+
+    amound_paid =(meal_price + meal_price * tip_porcentage)
+    return amound_paid
+
+total_price = total_meal_price(30)
+print(total_price)
 
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an
@@ -113,6 +178,31 @@ PART TWO:
 #    unpack what is returned into two variables --- sign and parity (whether
 #    it's even or odd). Print sign and parity.
 
+#pseudocode:
+#create a variable with value of positive, negative
+#create a variable with value of even odd
+#check if number is even or odd
+#
+
+def sign_and_parity(number):
+
+    if number >= 0:
+        positive_inf = "Positive"
+    else:
+        positive_inf = "Negative"
+
+    if number %2 == 0:
+        parity = "Even"
+    else:
+        parity = "Odd"
+
+    list_positive = [positive_inf, parity]
+    return list_positive
+
+list_paraty = sign_and_parity(8)
+print(list_paraty)
+
+
 
 ###############################################################################
 
@@ -121,6 +211,14 @@ PART TWO:
 # 1. Write a function called full_title that takes a name and a job title as
 #    parameters, making it so the job title defaults to "Engineer" if a job
 #    title is not passed in. Return the person's title and name in one string.
+
+
+def full_title(name, job_title = "Engineer"):
+
+    return job_title + (" ") + name
+
+job_description = full_title("Suelen")    
+
 
 # 2. Write a function called write_letter that, given a recipient name & job
 #    title and a sender name, prints the following letter:
@@ -131,6 +229,15 @@ PART TWO:
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
 
+def write_letter(recipient_name, job_title, sender_name):
+
+    receiver = full_title(recipient_name, job_title)
+    letter = f'Dear {receiver}, I think you are amazing! Sincerely, {sender_name}'
+
+    print(letter)
+
+full_letter = write_letter("Suelen", "Engineer", "Maria")    
+print(full_letter)
 
 ###############################################################################
 
